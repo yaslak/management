@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/png" href="{{asset('images/favicon.png')}}" />
     <title>LY</title>
     @include('layouts.style')
     @include('layouts.js')
@@ -25,7 +26,7 @@
             @if(isset($url))
                 <span class="hidden" id="url">{{ $url  }}</span>
             @endif
-            @yield('content-body')
+            @yield('content')
         </div>
         <!-- /main content -->
         <!-- progress bar -->

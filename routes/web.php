@@ -20,7 +20,7 @@ Route::get('/dlfqdskjghlqkdsfghlqkdfjhgqdhfglkjqdhfgkjhqdfkljghlqkdfghlkqf/{url}
     ));
 
 // home
-    Route::get('/', 'Home\HomeController@index')->middleware('recovred')->middleware('layout')->name('home');
+    Route::get('/', 'Home\HomeController@index')->middleware('recovred')->name('home');
 
 // auth
     Auth::routes();
@@ -36,7 +36,7 @@ Route::get('/dlfqdskjghlqkdsfghlqkdfjhgqdhfglkjqdhfgkjhqdfkljghlqkdfghlkqf/{url}
     Route::post('permissions','Permissions\PermissionsController@index')->name('permissions');
 
 // password
-    Route::namespace('Auth\Password')->prefix('password')->middleware('guest')->middleware('layout')->group(function (){Route::get('target','TargetController@index')->name('reset.target.show');
+    Route::namespace('Auth\Password')->prefix('password')->middleware('guest')->group(function (){Route::get('target','TargetController@index')->name('reset.target.show');
         Route::put('target','TargetController@store')->name('reset.target.store');
         Route::get('last_password/{token}','last_passwordController@index')->name('reset.lp.show');
         Route::put('last_password/{token}','last_passwordController@store')->name('reset.lp.store');
@@ -49,7 +49,7 @@ Route::get('/dlfqdskjghlqkdsfghlqkdfjhgqdhfglkjqdhfgkjhqdfkljghlqkdfghlkqf/{url}
     });
 
 // Recover
-    Route::namespace('Auth\Recover')->prefix('recover')->middleware('layout')->group( function (){
+    Route::namespace('Auth\Recover')->prefix('recover')->group( function (){
         Route::get('recover','RecoverController@index')->name('recover.recover');
         Route::put('recover','RecoverController@store')->name('recover.store');
         Route::get('mail','MailController@index')->name('recoverMail.show');
@@ -62,9 +62,12 @@ Route::get('/dlfqdskjghlqkdsfghlqkdfjhgqdhfglkjqdhfgkjhqdfkljghlqkdfghlkqf/{url}
 
 // profil
 
-    Route::prefix('membre')->namespace('Membre')->middleware('auth')->middleware('layout')->group(function (){
+    Route::prefix('membre')->namespace('Membre')->middleware('auth')->group(function (){
         Route::get('profil/{slug?}','ProfilController@index')->name('profil');
         Route::put('profil','ProfilController@update')->name('profil-update');
+    });
+    Route::middleware('auth')->namespace('App')->group(function (){
+        Route::get('setting','SettingController@index')->name('setting');
     });
 
 

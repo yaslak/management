@@ -1,7 +1,5 @@
-<div id="user-agent">
-    <span id="title-page" class="hidden">{{trans('pswr.sq.title-page')}}</span>
-    <span id="url-current">/password/sq/{{$token}}</span>
-</div>
+@extends('layouts.layout')
+@section('content')
 <div class="content">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
         <div class="panel panel-body login-form">
@@ -48,3 +46,4 @@
         </div>
     </div>
 </div>
+    @stop

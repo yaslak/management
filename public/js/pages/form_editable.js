@@ -9,7 +9,7 @@
 *
 * ---------------------------------------------------------------------------- */
 
-(function($) {
+$(function() {
 
 
     // Override defaults
@@ -19,7 +19,7 @@
     $.fn.editable.defaults.highlight = false;
 
     // Output template
-    $.fn.editableform.template = '<form class="editableform">' +
+    $.fn.editableform.template = '<form action="/profil" method="get" class="editableform f">' +
         '<div class="control-group">' +
         '<div class="editable-input"></div> <div class="editable-buttons"></div>' +
         '<div class="editable-error-block"></div>' +
@@ -1074,4 +1074,4 @@
         return movie.title;
     }
 
-})(jQuery);
+});

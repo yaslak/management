@@ -1,7 +1,5 @@
-<div id="user-agent">
-    <span id="title-page" class="hidden">{{trans('recover.recover.title-page')}}</span>
-    <span id="url-current">/recover/recover</span>
-</div>
+@extends('layouts.layout')
+@section('content')
 <div class="content">
     <div class="panel border-slate-300 panel-bordered">
         <div class="panel-heading bg-slate-300">
@@ -28,3 +26,4 @@
         </div>
     </div>
 </div>
+    @stop

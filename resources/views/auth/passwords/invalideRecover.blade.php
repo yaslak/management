@@ -1,8 +1,5 @@
-<div id="user-agent">
-
-    <span id="title-page" class="hidden">{{trans('pswr.target.title-page')}}</span>
-    <span id="url-current">/password/target</span>
-</div>
+@extends('layouts.layout')
+@section('content')
 <div class="content">
     <div class="card border-warning">
         <h6 class="text-warning">Sorry</h6>
@@ -13,3 +10,4 @@
         </p>
     </div>
 </div>
+@stop

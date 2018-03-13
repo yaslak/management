@@ -9,16 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @param Request $request
@@ -26,7 +16,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-       // \sleep(5);
         return view('home.home');
     }
 

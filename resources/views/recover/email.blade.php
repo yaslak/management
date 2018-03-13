@@ -1,7 +1,5 @@
-<div id="user-agent">
-    <span id="title-page">{{trans('recover.mail.title-page')}}</span>
-    <span id="url-current">/recover/mail</span>
-</div>
+@extends('layouts.layout')
+@section('content')
 
 <div class="content">
     <div class="panel border-slate-300 panel-bordered">
@@ -48,3 +46,4 @@
         </div>
     </div>
 </div>
+    @stop
