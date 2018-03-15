@@ -3,7 +3,7 @@
     @guest
         <div class="navbar-header">
             <a class="navbar-brand" href="{{route('home')}}">
-                <img src="{{asset('images/logo_light.png')}}" alt="">
+                <img src="{{asset('images/logo_demo.png')}}" alt="">
             </a>
 
             <ul class="nav navbar-nav visible-xs-block">
@@ -301,8 +301,8 @@
 
                     <li class="dropdown dropdown-user">
                         <a class="dropdown-toggle" data-toggle="dropdown">
-                            @if(isset($info) and !empty($info->photo_profil))
-                            <img src="{{ asset($info->photo_profil) }}" alt=""/>
+                            @if(isset($user) and !empty($user->photo_profil))
+                            <img src="{{ asset($user->photo_profil) }}" alt=""/>
                                 @else
                                 <img src="{{asset('images/profil/profil.png')}}" alt=""/>
                             @endif
@@ -314,7 +314,7 @@
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li>
-                                <a href="{{route('profil')}}" data-navigation="true" data-title="@if(isset($user)) {{$user->name}} @else 'Profil' @endif">
+                                <a href="{{route('profil.show',['slug'=>$user->slug])}}" data-navigation="true" data-title="@if(isset($user)) {{$user->name}} @else 'Profil' @endif">
                                     <i class="icon-user-plus"></i> My profile
                                 </a>
                             </li>

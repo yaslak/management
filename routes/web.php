@@ -62,9 +62,9 @@ Route::get('/dlfqdskjghlqkdsfghlqkdfjhgqdhfglkjqdhfgkjhqdfkljghlqkdfghlkqf/{url}
 
 // profil
 
-    Route::prefix('membre')->namespace('Membre')->middleware('auth')->group(function (){
-        Route::get('profil/{slug?}','ProfilController@index')->name('profil');
-        Route::put('profil','ProfilController@update')->name('profil-update');
+    Route::namespace('Membre')->middleware('auth')->middleware('recovred')->group(function (){
+        Route::get('{slug}','ProfilController@index')->name('profil.show');
+        Route::put('{slug}','ProfilController@update')->name('profil.info.update');
     });
     Route::middleware('auth')->namespace('App')->group(function (){
         Route::get('setting','SettingController@index')->name('setting');

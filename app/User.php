@@ -15,7 +15,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','recover_id'
+        'name', 'email', 'password',
+        'photo_profil','photo_cover',
+        'first_name','last_name',
+        'dtn','sex','address',
+        'house_nbr','city','tel',
+        'slug','recover_id',
     ];
 
     /**
@@ -30,10 +35,5 @@ class User extends Authenticatable
     public function recover()
     {
         return $this->belongsTo('App\Model\Recover\Recover');
-    }
-
-    public function info()
-    {
-        return $this->belongsTo('App\Model\Membre\Info');
     }
 }

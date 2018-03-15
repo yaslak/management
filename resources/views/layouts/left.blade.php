@@ -8,8 +8,8 @@
                     <div class="category-content">
                         <div class="media">
                             <a href="#" class="media-left">
-                                @if(isset($info) and !empty($info->photo_profil))
-                                    <img src="{{ asset($info->photo_profil) }}" class="img-circle img-lg" alt=""/>
+                                @if(isset($user) and !empty($user->photo_profil))
+                                    <img src="{{ asset($user->photo_profil) }}" class="img-circle img-lg" alt=""/>
                                 @else
                                     <img src="{{asset('images/profil/profil.png')}}" class="img-circle img-lg" alt=""/>
                                 @endif
@@ -17,7 +17,7 @@
                             <div class="media-body">
                                 <span class="media-heading text-semibold">{{$user->name}}</span>
                                 <div class="text-size-mini text-muted">
-                                    <i class="icon-pin text-size-small"></i>&nbsp{{ ucfirst($info->city) }}
+                                    <i class="icon-pin text-size-small"></i>&nbsp{{ ucfirst($user->city) }}
                                 </div>
                             </div>
 
