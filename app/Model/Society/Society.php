@@ -12,12 +12,16 @@ class Society extends Model
      * @var array
      */
     public $fillable = [
-        'society_email','society_name','society_domain','society_licence','society_address','society_build',
-        'society_zip','society_city','society_tel','society_speaker','society_turnover','society_limit','society_status',
-        'society_range','society_logo','society_tel','society_created_at','society_updated_at'
+        'society_name','society_email','society_address','society_build',
+        'society_tel','society_speaker','society_zip','society_city',
+        'society_domain','society_licence','society_turnover',
+        'society_limit','society_status','society_range',
+        'society_logo_id','society_cover_id',
+        'society_created_at','society_updated_at'
         ];
-    public $timestamps = false;
 
+    public $timestamps = false;
+/*
 
     public function posts()
     {
@@ -35,7 +39,7 @@ class Society extends Model
      * @param $logo
      * @return mixed
      */
-
+/*
     public static function societyStore($request,$logo)
     {
         return self::create([
@@ -86,4 +90,5 @@ class Society extends Model
     {
         return self::findOrFail($id);
     }
+*/
 }

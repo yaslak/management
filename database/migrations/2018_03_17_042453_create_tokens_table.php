@@ -15,7 +15,7 @@ class CreateTokensTable extends Migration
     {
         Schema::create('tokens', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('society_id')->unsigned();
+
             $table->string('token')->unique();
             $table->string('range');
             $table->boolean('pdg')->nullable();
@@ -24,7 +24,12 @@ class CreateTokensTable extends Migration
             $table->boolean('commercial')->nullable();
             $table->boolean('delivery_man')->nullable();
             $table->boolean('storekeeper')->nullable();
-            $table->timestamps();
+
+            $table->integer('society_id')->unsigned()->index();
+            $table->foreign('society_id')->references('id')->on('societies');
+
+            $table->dateTime('token_updated_at');
+            $table->dateTime('token_created_at');
         });
     }
 

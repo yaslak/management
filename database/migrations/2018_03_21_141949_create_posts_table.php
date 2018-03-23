@@ -15,10 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('society_id');
-            $table->foreign('society_id')->references('id')->on('societies');
+
             $table->dateTime('post_limit');
             $table->boolean('post_pdg')->nullable();
             $table->boolean('post_manager')->nullable();
@@ -26,12 +23,15 @@ class CreatePostsTable extends Migration
             $table->boolean('post_commercial')->nullable();
             $table->boolean('post_delivery_man')->nullable();
             $table->boolean('post_storekeeper')->nullable();
-            $table->dateTime('post_created_at');
+
+            $table->integer('post_user_id')->unsigned()->index()->unique();
+            $table->integer('post_society_id')->unsigned()->index();
+
+            $table->foreign('post_society_id')->references('id')->on('societies');
+            $table->foreign('post_user_id')->references('id')->on('users');
+
             $table->dateTime('post_updated_at');
-        });
-        Schema::table('users',function (Blueprint $table){
-            $table->integer('post_id')->nullable();
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->dateTime('post_created_at');
         });
     }
 

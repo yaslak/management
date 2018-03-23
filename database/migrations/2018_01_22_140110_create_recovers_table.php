@@ -19,9 +19,6 @@ class CreateRecoversTable extends Migration
             $table->string('token',100)->nullable();
             $table->timestamps();
         });
-        Schema::table('users',function (Blueprint $table){
-            $table->integer('recover_id')->unsigned()->index()->nullable();
-        });
     }
 
     /**
