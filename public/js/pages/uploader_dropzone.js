@@ -26,6 +26,7 @@ $(function() {
             this.on('addedfile', function(file){
                 if (this.fileTracker) {
                 this.removeFile(this.fileTracker);
+
             }
                 this.fileTracker = file;
             });

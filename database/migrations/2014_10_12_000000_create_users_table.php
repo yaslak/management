@@ -27,8 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('address',50)->nullable();
             $table->string('house_nbr',6)->nullable();
             $table->string('city',50)->nullable();
-            $table->string('tel',11)->nullable();
-            $table->string('slug', 30)->nullable();
+            $table->string('tel')->nullable()->unique();
+            $table->integer('is_admin')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

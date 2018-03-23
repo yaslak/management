@@ -18,6 +18,19 @@ $factory->define(App\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'photo_profil' => 'images/demo/users/face1.jpg',
+        'photo_cover' => 'images/demo/images/1.png',
         'remember_token' => str_random(10),
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'dtn' => $faker->unique()->date(),
+        'sex' => 'homme',
+        'address' => $faker->unique()->streetAddress,
+        'house_nbr' => $faker->unique()->buildingNumber,
+        'city' => $faker->city,
+        'tel' => $faker->phoneNumber,
+        'recover_id' => 1,
+        'created_at' => Carbon\Carbon::now(),
+        'updated_at' => Carbon\Carbon::now(),
     ];
 });

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -35,5 +36,35 @@ class User extends Authenticatable
     public function recover()
     {
         return $this->belongsTo('App\Model\Recover\Recover');
+    }
+
+    public function posts()
+    {
+        return $this->belongsToMany('App\Model\Society\Post');
+    }
+
+    public function liste()
+    {
+        return DB::table('users')
+            ->leftJoin('societies', 'users.id', '=', 'societies.id')
+            ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+            ->select('users.*', 'posts.*','societies.*')
+            ->where('users.is_admin', null)
+            ->get();
+    }
+
+    public static function UserDelete(int $id)
+    {
+        return DB::table('users')->where('id',$id)->delete();
+    }
+
+    public static function UserPostDelete(int $id)
+    {
+        return DB::table('posts')->where('user_id',$id)->delete();
+    }
+
+    public static function hasPost(int $id)
+    {
+        return DB::table('posts')->where('user_id',$id)->first();
     }
 }

@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="profile-cover">
-        <div class="profile-cover-img" style="background-image: url('{{asset('images/login_cover.jpg')}}')"></div>
+        <div class="profile-cover-img" style="background-image: @if(isset($user) and !empty($user->photo_cover)) {{'url(' . asset($user->photo_cover).')'}} @else  {{'url('. asset('images/login_cover.jpg') . ')'}} @endif "></div>
         <div class="media">
             <div class="media-left">
                 <a href="#" class="profile-thumb">

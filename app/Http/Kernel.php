@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'recover.password' => \App\Http\Middleware\Recover\PasswordRecovering::class,
         'recovred'=> \App\Http\Middleware\Recover\Recovered::class,
         'layout' => \App\Http\Middleware\Navigation::class,
+        'admin' => \App\Http\Middleware\Admin\Admin::class,
     ];
 }

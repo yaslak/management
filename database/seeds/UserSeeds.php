@@ -27,7 +27,8 @@ class UserSeeds extends Seeder
             'tel' => '0683574565',
             'slug' => 'yasser-lakhsadi-65',
             'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
+            'updated_at' => \Carbon\Carbon::now(),
+            'is_admin' => 1
         ]);
     }
 }

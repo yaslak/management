@@ -4,9 +4,10 @@
 <script type="text/javascript" src="{{ asset('js/core/libraries/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/plugins/loaders/blockui.min.js')}}"></script>
 <!-- /core JS files -->
+
+
 <script type="text/javascript" src="{{ asset('js/core/app.js')}}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-
 <!-- Theme JS files
 
 
@@ -22,8 +23,6 @@
 
 
 <!-- /theme JS files -->
+<script type="text/javascript" src="{{ asset('js/app.js')}}"></script>
 @yield('theme-js')
 
-
-
-<script type="text/javascript" src="{{ asset('js/app.js')}}"></script>

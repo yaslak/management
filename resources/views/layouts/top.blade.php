@@ -314,11 +314,15 @@
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li>
-                                <a href="{{route('profil.show',['slug'=>$user->slug])}}" data-navigation="true" data-title="@if(isset($user)) {{$user->name}} @else 'Profil' @endif">
+                                <a href="{{route('user_profil.show',['id'=>$user->id])}}" data-navigation="true" data-title="@if(isset($user)) {{$user->name}} @else 'Profil' @endif">
                                     <i class="icon-user-plus"></i> My profile
                                 </a>
                             </li>
-                            <li><a href="#"><i class="icon-coins"></i> My balance</a></li>
+                            <li><a href="#"><i class="icon-coins"></i> Organisation</a></li>
+                            @if($user->is_admin)
+                            <li><a href="{{route('users.index')}}"><i class="icon-coins"></i> users</a></li>
+                            <li><a href="{{route('societies.index')}}"><i class="icon-coins"></i> societies</a></li>
+                            @endif
                             <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i
                                             class="icon-comment-discussion"></i> Messages</a></li>
                             <li class="divider"></li>

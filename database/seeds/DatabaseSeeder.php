@@ -11,8 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        /*
+        $this->call(UserSeeds::class);
+        */
         $this->call(QuestionsSeeds::class);
         $this->call(RecoversSeeds::class);
-        $this->call(UserSeeds::class);
+        factory('App\User', 25)->create();
+        factory('App\Model\Society\Society', 50)->create();
     }
 }

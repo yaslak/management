@@ -32,6 +32,8 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
+    public $username = 'name';
+
     /**
      * Create a new controller instance.
      *
@@ -75,19 +77,23 @@ class LoginController extends Controller
     }
 
 
-
     /**
      * Get the login username to be used by the controller.
      *
      * @param $request
+     * @return string
      */
-    public function username($request)
+    public function username($request = null)
     {
-        $user = User::where('email',$request->get('name'))->first();
-        if($user){
-            $this->username = 'email';
-            $request['email'] = $user->email;
+        if(!is_null($request)){
+            $user = User::where('email',$request->name)->first();
+            if($user){
+                $this->username = 'email';
+                $request['email'] = $user->email;
+                return 'email';
+            }
         }
+        return $this->username;
     }
 
 
@@ -101,5 +107,20 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         return redirect()->route('recover.recover');
+    }
+
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username => 'required|string',
+            'password' => 'required|string',
+        ]);
     }
 }
