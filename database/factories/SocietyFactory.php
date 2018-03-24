@@ -18,8 +18,8 @@ $factory->define(App\Model\Society\Society::class, function (Faker $faker) {
         'society_limit'=> $faker->dateTimeInInterval($startDate = 'now', $interval = '+ 120 days') ,
         'society_range'=> rand(30,500),
         'society_status'=> rand(0,1),
-        'society_cover_id'=> $faker->unique()->biasedNumberBetween(1,12),
-        'society_logo_id'=> $faker->unique()->biasedNumberBetween(1,12),
+        'society_cover_id'=> $faker->unique()->biasedNumberBetween(1,27),
+        'society_logo_id'=> $faker->unique()->biasedNumberBetween(28,54),
         'society_created_at' => \Carbon\Carbon::now(),
         'society_updated_at' => \Carbon\Carbon::now(),
     ];

@@ -18,7 +18,7 @@ class CreateProvidersTable extends Migration
 
             $table->integer('provider_society_id')->unsigned()->index();
             $table->integer('provider_pivot_deal_id')->unsigned()->index();
-            $table->integer('provider_client_id')->unsigned()->index();
+            $table->integer('provider_client_id')->unsigned()->index()->nullable();
 
             $table->foreign('provider_society_id')->references('id')->on('societies');
             $table->foreign('provider_pivot_deal_id')->references('id')->on('pivot_deals');

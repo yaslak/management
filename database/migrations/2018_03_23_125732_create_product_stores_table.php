@@ -20,10 +20,10 @@ class CreateProductStoresTable extends Migration
             $table->string('product_store_description')->nullable();
             $table->string('product_store_ref')->nullable();
             $table->string('product_store_status');
-            $table->boolean('product_store_expired');
+            $table->boolean('product_store_expired')->nullable();
             $table->date('product_store_expired_in')->nullable();
-            $table->string('product_store_sale_price')->nullable();
-            $table->string('product_store_buy_price')->nullable();
+            $table->string('product_store_sale_prince')->nullable();
+            $table->string('product_store_buy_prince')->nullable();
             $table->string('product_store_tva')->nullable();
             $table->string('product_store_taxes')->nullable();
             $table->string('product_store_qt')->nullable();

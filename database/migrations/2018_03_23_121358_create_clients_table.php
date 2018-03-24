@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
 
             $table->integer('client_society_id')->unsigned()->index();
             $table->integer('client_pivot_deal_id')->unsigned()->index();
-            $table->integer('client_client_id')->unsigned()->index();
+            $table->integer('client_client_id')->unsigned()->index()->nullable();
 
             $table->foreign('client_society_id')->references('id')->on('societies');
             $table->foreign('client_pivot_deal_id')->references('id')->on('pivot_deals');

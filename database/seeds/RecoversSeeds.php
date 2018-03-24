@@ -12,11 +12,15 @@ class RecoversSeeds extends Seeder
      */
     public function run()
     {
-        DB::table('recovers')->insert([
+
+        for($i = 1; $i < 28; $i++){
+            DB::table('recovers')->insert([
             'email' => true,
             'token' => false,
             'question_secrete_id' => 1,
             'response' => '00:00'
         ]);
+            DB::table('users')->where('id',$i)->update(['recover_id' => $i]);
+        }
     }
 }

@@ -28,9 +28,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'house_nbr' => $faker->unique()->buildingNumber,
         'city' => $faker->city,
         'tel' => $faker->unique()->phoneNumber,
-        'recover_id' => $faker->unique()->numberBetween($min = 1, $max = 52),
-        'society_id' => $faker->numberBetween($min = 1, $max = 6),
-        'post_id' => $faker->unique()->numberBetween($min = 1, $max = 52),
         'created_at' => Carbon\Carbon::now(),
         'updated_at' => Carbon\Carbon::now(),
     ];

@@ -23,10 +23,10 @@ class CreateSalesTable extends Migration
             $table->string('sale_taxes_total')->nullable();
             $table->string('sale_prince_total');
 
-            $table->integer('sale_provider_id')->nullable()->unsigned()->index();
+            $table->integer('sale_client_id')->nullable()->unsigned()->index();
             $table->integer('sale_order_id')->index()->unsigned();
 
-            $table->foreign('sale_provider_id')->references('id')->on('providers');
+            $table->foreign('sale_client_id')->references('id')->on('providers');
             $table->foreign('sale_order_id')->references('id')->on('orders');
 
             $table->dateTime('sale_created_at');
