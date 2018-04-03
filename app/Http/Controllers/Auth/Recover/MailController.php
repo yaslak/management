@@ -28,13 +28,15 @@ class MailController extends Controller
     public function return(Mailer $mailer)
     {
         $user = Auth::user();
-        return $this->mail($user,$this->token($user),$mailer,'le mail a été renvoyer');
+        return $this->mail($user,$this->token($user),$mailer);
     }
 
-    public function mail($user, $token, $mailer, $success)
+    public function mail($user, $token, $mailer)
     {
-       // $this->send($user,$token,$mailer);
-        Session()->flash('success',$success);
+        //$this->send($user,$token,$mailer);
+        Session()->flash('success',true);
+        Session()->flash('success.title',trans('auth.mail_flash_title'));
+        Session()->flash('success.content',trans('auth.mail_flash_content'));
         return view('recover.email')->with(compact('user'));
     }
 
@@ -45,7 +47,9 @@ class MailController extends Controller
            return back()->withErrors(['token'=>'invalide'])->withInput();
         }
         $user->recover()->update(['email'=>true, 'token' => false]);
-        Session()->flash('success','Votre adresse mail est bien été valider');
+        Session()->flash('success',true);
+        Session()->flash('success.title',trans('auth.mail_flash_title'));
+        Session()->flash('success.content',trans('auth.mail_flash_validate_content'));
         return redirect(url(route('recoverSq.show')));
     }
 

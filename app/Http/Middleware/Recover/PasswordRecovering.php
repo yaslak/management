@@ -41,7 +41,7 @@ class PasswordRecovering
 
     private function redirect()
     {
-        Session()->flash('success','veuillez ne pas jouer avec les URLs');
+        Session()->flash('danger.content','veuillez ne pas jouer avec les URLs');
         return redirect()->route('reset.target.show');
     }
 }

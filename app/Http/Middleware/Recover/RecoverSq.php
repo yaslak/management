@@ -19,18 +19,18 @@ class RecoverSq
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
-        if(!$this->recover($user)){
-            return redirect(route('recover.recover'));
+        $recover = $this->recover($user);
+        if (!$recover){
+            return redirect()->route('recover.recover');
         }
-        elseif($this->token($user)){
-            return redirect(route('recoverMail.show'));
+        $mail = $this->token($user);
+        if($mail != 0){
+            return redirect()->route('recoverMail.show');
         }
-        elseif(!$this->Qs($user)){
+        if(!$this->Qs($user)){
             return $next($request);
         }
-        else{
-            Session()->flash('success','Votre Validation est déjà établie');
-            return redirect(url('/'),301);
-        }
+        Session()->flash('success.content',trans('auth.sq_flash_validate_content'));
+        return redirect(url('/'),301);
     }
 }

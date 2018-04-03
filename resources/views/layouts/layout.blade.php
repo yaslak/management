@@ -29,6 +29,7 @@
             @yield('content')
         </div>
         <!-- /main content -->
+
         <!-- progress bar -->
         <div id="progress">
             <div id="wrap-progress"></div>
@@ -42,6 +43,7 @@
             </div>
         </div>
         <!-- /progress bar -->
+        @include('layouts.flash')
     </div>
     <!-- /page content -->
 </div>

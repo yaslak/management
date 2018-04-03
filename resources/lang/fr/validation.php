@@ -168,6 +168,8 @@ return [
         'inactive'              => 'inactif',
         'update'                => 'Modifier',
         'delete'                => 'Supprimé',
+        'domain'                => 'domaine',
+        'speaker'               => 'speaker'
     ],
 
 ];

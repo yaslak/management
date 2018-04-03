@@ -15,19 +15,17 @@ class CreateAgendasTable extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('agenda_title');
             $table->string('agenda_text');
             $table->dateTime('agenda_from');
             $table->dateTime('agenda_to');
+            $table->string('agenda_status');
+            $table->string('agenda_type');
 
-            $table->integer('agenda_user_id')->index()->unsigned()->nullable();
-            $table->integer('agenda_society_id')->index()->unsigned()->nullable();
+            $table->integer('agenda_publisher_reader_id')->index()->unsigned()->nullable();
 
-            $table->foreign('agenda_user_id')->references('id')->on('users');
-            $table->foreign('agenda_society_id')->references('id')->on('societies');
-
-            $table->dateTime('agenda_updated_at');
-            $table->dateTime('agenda_created_at');
+            $table->foreign('agenda_publisher_reader_id')->references('id')->on('publisher_readers');
         });
     }
 

@@ -314,7 +314,7 @@
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li>
-                                <a href="{{route('user_profil.show',['id'=>$user->id])}}" data-navigation="true" data-title="@if(isset($user)) {{$user->name}} @else 'Profil' @endif">
+                                <a href="{{route('user.show',['id'=>$user->id])}}" data-navigation="true" data-title="@if(isset($user)) {{$user->name}} @else 'Profil' @endif">
                                     <i class="icon-user-plus"></i> My profile
                                 </a>
                             </li>
@@ -326,7 +326,7 @@
                             <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i
                                             class="icon-comment-discussion"></i> Messages</a></li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+                            <li><a href="{{route('setting.index')}}"><i class="icon-cog5"></i> Account settings</a></li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

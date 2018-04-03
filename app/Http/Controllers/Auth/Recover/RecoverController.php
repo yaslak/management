@@ -17,6 +17,7 @@ class RecoverController extends Controller
     public function __construct()
     {
        $this->middleware('auth');
+       $this->middleware('recover.recover');
     }
 
     public function index()
@@ -37,7 +38,7 @@ class RecoverController extends Controller
 
     private function createRecover ($user){
         $token = rand();
-        $recover = Recover::create(['email'=>false,'token'=>$token]);
+        $recover = Recover::create(['email'=>false,'token'=>$token,'response'=>false]);
         $user->recover()->associate($recover)->save();
         return $token;
     }

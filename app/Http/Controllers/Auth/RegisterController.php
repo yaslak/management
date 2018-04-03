@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Rules\Auth\RegisterRules;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -50,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|alpha_num|min:5|max:15|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => ['required','string','min:6',new RegisterRules(),'confirmed'],
             'conditions' => 'required',
         ]);
     }
@@ -67,8 +70,26 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'recover_id' => false,
             'slug' => str_slug($data['name'])
         ]);
+    }
+
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        return redirect(route('recover.recover'))
+            ->with([
+                'success' => [
+                    'title' => trans('auth.success_flash_title'),
+                    'content' => trans('auth.success_flash_title')
+                ]
+            ]);
     }
 }

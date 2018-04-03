@@ -37,7 +37,7 @@ trait Recover
      */
     public function Qs($user)
     {
-        return $user->recover->question_secrete_id ?:  false;
+        return ($user->recover->question_secrete_id && $user->recover->response) ? true : false;
     }
 
     public function send($user,$token,$mailer){

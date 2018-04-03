@@ -9,10 +9,10 @@ class ProfilController extends Controller
 {
     public function index()
     {
-
+        echo 'profil';
     }
     public function show()
     {
-
+        return view('user.profil.show');
     }
 }

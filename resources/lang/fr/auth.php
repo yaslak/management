@@ -28,5 +28,12 @@ return [
     'your-privacy' => 'Votre vie privée',
     'additions' => 'plus',
     'accept' => 'j\'accepte',
+    'password' => 'Le mot de passe doit être mélangé entre lettres minuscules, majuscules et chiffres',
+    'success_flash_title' => 'Bien venu',
+    'success_flash_content' => 'Félicitation, votre compte vient d\'être créé.',
+    'mail_flash_title' => 'Envoyer',
+    'mail_flash_content' => 'Le mail a bien été envoyé',
+    'mail_flash_validate_content' => 'Votre adresse mail a bien été validé',
+    'sq_flash_validate_content' => 'Votre compte est récupérable',
 
 ];

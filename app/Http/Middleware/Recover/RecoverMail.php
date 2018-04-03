@@ -18,21 +18,16 @@ class RecoverMail
      */
     public function handle($request, Closure $next)
     {
-
         $user = Auth::user();
-        if(!$this->recover($user)){
-            return redirect(route('recover.recover'));
+        $recover = $this->recover($user);
+        if (!$recover){
+            return redirect()->route('recover.recover');
         }
-        if($this->token($user)){
+        $mail = $this->token($user);
+        if($mail != 0){
             return $next($request);
         }
-        elseif(!$this->Qs($user)){
-            return redirect(route('recoverSq.show'));
-        }
-        else{
-            Session()->flash('success','Votre Validation est déjà établie');
-            return redirect(url('/'),301);
-        }
+        return redirect()->route('recoverSq.show');
     }
 
 }

@@ -59,10 +59,11 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'recover' =>  \App\Http\Middleware\Recover\Recovered::class,
+        'recover.recover'=> \App\Http\Middleware\Recover\Recover::class,
         'recover.mail' => \App\Http\Middleware\Recover\RecoverMail::class,
         'recover.sq' => \App\Http\Middleware\Recover\RecoverSq::class,
         'recover.password' => \App\Http\Middleware\Recover\PasswordRecovering::class,
-        'recovred'=> \App\Http\Middleware\Recover\Recovered::class,
         'layout' => \App\Http\Middleware\Navigation::class,
         'admin' => \App\Http\Middleware\Admin\Admin::class,
     ];

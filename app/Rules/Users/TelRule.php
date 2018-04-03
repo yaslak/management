@@ -26,7 +26,6 @@ class TelRule implements Rule
     public function passes($attribute, $value)
     {
         return preg_match("/^(0)[5-7]{1}[0-9]{8}$/", $value);
-
     }
 
     /**

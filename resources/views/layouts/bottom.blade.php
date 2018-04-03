@@ -12,8 +12,8 @@
 
         <div class="navbar-right">
             <ul class="nav navbar-nav">
-                <li><a href="#">Help center</a></li>
-                <li><a href="#">Policy</a></li>
+                <li><a href="{{route('faq')}}">Help center</a></li>
+                <li><a href="{{route('policies')}}">Policy</a></li>
                 <li><a href="#" class="text-semibold">Upgrade your account</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -22,19 +22,17 @@ class Recovered
     {
         if(Auth::user()){
             $user = Auth::user();
-            if(!$user->recover_id){
+            $recover = $this->recover($user);
+            if (!$recover){
                 return redirect()->route('recover.recover');
             }
-            else{
-                $recover = Recover::where([
-                    ['id',$user->recover_id],['email','!=',1]
-                ])->orWhere([
-                    ['id',$user->recover_id],['response','!=',0]
-                ])->first();
-                if($recover){
-                    return redirect()->route('recover.recover');
-                }
-
+            $mail = $this->token($user);
+            if($mail != 0){
+                return redirect()->route('recoverMail.show');
+            }
+            $sq = $this->Qs($user);
+            if(!$sq){
+                return redirect()->route('recoverSq.show');
             }
         }
         return $next($request);
